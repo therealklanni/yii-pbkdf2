@@ -22,7 +22,6 @@ In `protected/components/UserIdentity.php` you will need to modify your `authent
         
         if($record===null)
             $this->errorCode=self::ERROR_USERNAME_INVALID;
-        // Replace this with proper validation
         else if(Yii::app()->auth->validate_password($this->password, $record->salt, $record->password))
             $this->errorCode=self::ERROR_PASSWORD_INVALID;
         else
