@@ -22,7 +22,7 @@ In `protected/components/UserIdentity.php` you will need to modify your `authent
         
         if($record===null)
             $this->errorCode=self::ERROR_USERNAME_INVALID;
-        else if(Yii::app()->auth->validate_password($this->password, $record->salt, $record->password))
+        else if(!Yii::app()->auth->validate_password($this->password, $record->salt, $record->password))
             $this->errorCode=self::ERROR_PASSWORD_INVALID;
         else
             $this->_id = $record->id;
@@ -49,9 +49,9 @@ Always hash new passwords using the `generate_hash` method
 
     $auth = Yii::app()->auth->generate_hash('password');
 
-This will return an object containing your new salt and the hashed password strings.
+This will return an object containing your new `salt` and password `hash` strings.
 Store these values in your user table in your database for the user in question, for 
-example when creating a new user or saving a new password. **The salt must be updated
+example when creating a new user or updating his password. **The salt must be updated
 with the newly-generated salt each time.**
 
 Validate a password using the `validate_password` method
