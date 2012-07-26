@@ -3,7 +3,7 @@
  * @author Kevin Lanni <therealklanni@gmail.com>
  * @name Yii PBKDF2 Password Hashing/Validating Module
  *
- * This module provides secure password hashing via the PBKDF2 method.
+ * This module provides secure password hashing and authentication via the PBKDF2 method.
  * Original code by havoc AT defuse.ca / https://defuse.ca/php-pbkdf2.htm
  */
 
