@@ -1,6 +1,6 @@
 # yii-pbkdf2
 
-Yii PBKDF2 Password Hashing/Authentication Component
+Yii PBKDF2 String Hashing/Validation Component
 
 ## Installation
 
@@ -22,7 +22,7 @@ In `protected/components/UserIdentity.php` you will need to modify your `authent
         
         if($record===null)
             $this->errorCode=self::ERROR_USERNAME_INVALID;
-        else if(!Yii::app()->auth->validate_password($this->password, $record->salt, $record->password))
+        else if(!Yii::app()->auth->validate_hash($this->password, $record->salt, $record->password))
             $this->errorCode=self::ERROR_PASSWORD_INVALID;
         else
             $this->_id = $record->id;
@@ -54,9 +54,9 @@ Store these values in your user table in your database for the user in question,
 example when creating a new user or updating his password. **The salt must be updated
 with the newly-generated salt each time.**
 
-Validate a password using the `validate_password` method
+Validate a password using the `validate_hash` method
 
-    $valid = Yii::app()->auth->validate_password($raw, $salt, $hash);
+    $valid = Yii::app()->auth->validate_hash($raw, $salt, $hash);
 
 Where `$raw` is the string authenticating against, `$salt` is the user's salt from 
 your table, and `$hash` is the user's hashed password from your table.
