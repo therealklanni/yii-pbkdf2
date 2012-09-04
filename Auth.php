@@ -16,7 +16,7 @@ class Auth extends CApplicationComponent
 	public $hash_bytes = 24; // 24 bytes generates a 32-character string
 	
 	/**
-	 * Generates a secure password hash
+	 * Generate a secure password hash
 	 *
 	 * @param string $raw Raw (unhashed) string
 	 * @return object Object containing the generated salt and PBKDF2-hashed password
@@ -37,7 +37,7 @@ class Auth extends CApplicationComponent
 	}
 	
 	/**
-	 * Check user input versus SHA256-encrypted and salted password hash
+	 * Check user input against encrypted and salted password hash
 	 *
 	 * @param string $raw User input
 	 * @param string $salt User's salt stored with hashed password
