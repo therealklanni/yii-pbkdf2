@@ -39,7 +39,7 @@ You will also need to override the `getId` method
 	
 And don't forget to declare `$_id` at the top of the class
 
-    private $id;
+    private $_id;
 
 Refer to the Yii documentation for more on [authentication][1]
 
